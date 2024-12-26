@@ -49,9 +49,7 @@ class DateFormatToRegexTest extends TestCase
         'e',
         'T',
     ];
-    /**
-     * @dataProvider formatProvider
-     */
+    #[\PHPUnit\Framework\Attributes\DataProvider('formatProvider')]
     public function testFormatToRegex(string $format)
     {
         $regex = DateFormatToRegex::formatToRegex($format);
@@ -63,7 +61,7 @@ class DateFormatToRegexTest extends TestCase
         }
     }
 
-    public function formatProvider()
+    public static function formatProvider()
     {
         yield 'ATOM format' => [DateTime::ATOM];
         yield 'Cookie format' => [DateTime::COOKIE];
